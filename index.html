@@ -10,15 +10,21 @@
 <body>
     <!--header -->
     <header>
-        <h4>View high scores</h4>
-        <h4 id="counter">Timer: 0</h4>
+        <h4 class="high-scores" id="high-scores"><a href="./index.html">View high scores</a></h4>
+        <h4 class="time" id="time">Time: 0</h4>
     </header>
 
     <!--intro to quiz-->
-    <div>
-        <h1 class="questions" id="intro"></h1>
-        <button class="btn" id="btn"></button>
-    </div>
+    <section>
+        <main class="quiz-content" id="quiz-content">
+            <h1 class="quiz-intro" id="quiz-intro">Coding Quiz Challenge</h1>
+            <p>Try to answer the following code-related questions within the time limit. keep in mind that incorrect answers will penalize your score/time by 10 seconds!
+            </p>
+            <!--object that will be tarted by appendChild for list of button choices in JS-->
+            <ol class="choices" id="choices"></ol>
+            <button class="btn" id="btn">Start Quiz</button>
+        </main>
+    </section>
     <script src="./assets/js/script.js"></script>
 </body>
 </html>

@@ -3,20 +3,25 @@ var quizScore = 0;
 var answers = [];
 var saveScore = [];
 
-//function that starts the quiz by initiating delete function on intro content in main and added first question content
+//function that removes btn and quiz-intro text
 
-//function that submits new question after deleting previous one
+//function that adds question and button choices
+
+//function that submits new question after removing previous one and replaces button choices with new ones
     //button.addeventlistner("click", question2); Event Bubling
 
-//append child questionX to div
+//append child question to div
 
 //matches function
 
 //function that deletes questions. var delete = questions.querySelector()
 
+//function that checks if choice matches any object from answer array. 
+    //if not, function that takes 10 away from timer
+
 //function that stores choice into an array
 
-//function that sees if choices array matches correct answers array, points counted based on that 
+//function that sees if choices array matches correct answers array, points counted based on that
 
 //takes value of quizScore counter and adds it to saveScore
 

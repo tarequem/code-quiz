@@ -2,3 +2,87 @@
     box-sizing: border-box;
 }
 
+header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.high-scores a {
+    color: violet;
+    text-decoration: none;
+}
+
+.time {
+    color: black;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.quiz-content {
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 50%;
+}
+
+.quiz-intro {
+    text-align: center;
+    font-size: 32px;
+}
+
+.quiz-content p {
+    text-align: center;
+    font-size: 20px;
+}
+
+.btn {
+    text-align: center;
+    color: black;
+    background-color: purple;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 10px;
+    font-weight: bold;
+    margin: auto;
+}
+
+/* styling for elements added by js */
+
+.question {
+    font-size: 32px;
+}
+
+.choice-btn {
+    color: black;
+    background-color: purple;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+/* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
+@media screen and (max-width: 980px){
+
+}
+
+/* MEDIA QUERY FOR TABLETS AND SMALLER */
+@media screen and (max-width: 768px) {
+    .btn {
+        width: 100%;
+    }
+
+    .choice {
+        width: 100%;
+    }
+
+}
+
+/* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
+@media screen and (max-width: 575px){
+
+}
