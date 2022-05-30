@@ -1,40 +1,104 @@
-//timer that counts down quiz
-var quizScore = 0;
-var answers = [];
+//array to hold answers picked
+var userAnswers = [];
+
+//array to hold high scores
 var saveScore = [];
 
-//function that removes btn and quiz-intro text
+//variables 
+var timerStart = 75;
+var timer = 75;
+var quizScore = 0;
+var questionNumber = 0;
 
-//function that adds question and button choices
+var timer = document.getElementById("time");
+var intro = document.getElementById("quiz-intro");
+var introBtn = document.getElementById("btn");
+var quizContent = document.getElementById("quiz-content")
 
-//function that submits new question after removing previous one and replaces button choices with new ones
-    //button.addeventlistner("click", question2); Event Bubling
+//list of questions and answers
+var questions = [
+    {
+        question: "Commonly used data types DO not include:",
+        answers: [ 
+            {text: "1. strings", answers: false},
+            {text: "2. booleans", answers: true},
+            {text: "3. alerts", answers: false},
+            {text: "4. numbers", answers: false}
+        ]
+    },
+    {
+        question: "The condition in an if/else statement is enclosed with _______ :",
+        answers: [ 
+            {text: "1. quotes", answers: false},
+            {text: "2. curly brackets", answers: false},
+            {text: "3. parenthesis", answers: true},
+            {text: "4. square brackets", answers: false}
+        ]
+    },
+    {
+        question: "Arrays in JavaScript can be used to store______.:",
+        answers: [ 
+            {text: "1. numbers and strings", answers: false},
+            {text: "2. other arrays", answers: false},
+            {text: "3. booleans", answers: false},
+            {text: "4. all of the above", answers: true}
+        ]
+    },
+    {
+        question: "String values must be enclosed within _____ when being assigned to variables:",
+        answers: [ 
+            {text: "1. commas", answers: false},
+            {text: "2. curly brackets", answers: true},
+            {text: "3. quotes", answers: false},
+            {text: "4. parenthesis", answers: false}
+        ]
+    },
+    {
+        question: "String values must be enclosed within _____ when being assigned to variables:",
+        answers: [ 
+            {text: "1. commas", answers: false},
+            {text: "2. curly brackets", answers: false},
+            {text: "3. for loops", answers: true},
+            {text: "4. parenthesis", answers: false}
+        ]
+    }
+]
 
-//append child question to div
+//function that starts quiz
+function quizStart(Event) {
+    introBtn.classList.add("hide");
+    intro.classList.add("hide");
+    
+//function that starts the timer
 
-//matches function
+}
 
-//function that deletes questions. var delete = questions.querySelector()
+//function for timer
+/*
+var quizTimer() {
+    let counter = 75
+    setInterval(() => {
+        counter--
+        timer.innerHTML(counter)
+    }, 1000);
+    nextQuestion();
+}
+*/
+//function that loads in next question and alerts if they picked the right or wrong answer.
+function nextQuestion () {
 
-//function that checks if choice matches any object from answer array. 
-    //if not, function that takes 10 away from timer
+}
 
-//function that stores choice into an array
+//function that will end the quiz if the timer reaches 0/ alert("You've reached the time limit")
 
-//function that sees if choices array matches correct answers array, points counted based on that
+//function that tallies score based on correct answers
+function choiceAnswer () {
 
-//takes value of quizScore counter and adds it to saveScore
+}
 
-//load array from local storage
+//function: "your score. Return to beginning + see high scores"
 
-//displays scores in header
 
-//"matches, plus 1" then move onto next question. 
 
-//answer list array
-
-//function where user inputs initials to store score
-
-//function that stores score
-
-//function that resets the quiz
+//clears quiz content, loads in first question
+introBtn.addEventListener("click", quizStart);
