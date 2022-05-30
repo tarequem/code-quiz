@@ -1,25 +1,28 @@
-//array to hold answers picked
-var userAnswers = [];
-
-//array to hold high scores
-var saveScore = [];
-
-//variables 
-var timerStart = 75;
-var timer = 75;
-var quizScore = 0;
-var currentQuestion = 0;
-
-var timer = document.getElementById("time");
-var intro = document.getElementById("quiz-intro");
 var introBtn = document.getElementById("btn");
-var quizContent = document.getElementById("quiz-content")
+var intro = document.getElementById("quiz-intro");
+var quizContent = document.getElementById("quiz-content");
 var questionEl = document.getElementById("question");
 var choiceBtnEl = document.getElementById("choice-btn");
+var score = 0;
+var questions = 0;
 
-var questionArray, currentQuestion
+function quizStart() {
+    introBtn.classList.add("hide");
+    intro.classList.add("hide");
+    quizContent.classList.remove("hide");
+    for(var i=0; i < questions.length; i++) {
+        questionEl.innerText = parseInt(questions[i])
+     
+    }
+}
 
-//list of questions and answers
+
+
+
+//hides intro page, loads next question
+introBtn.addEventListener("click", quizStart);
+
+//array of questions and answers
 var questions = [
     {
         question: "Commonly used data types DO not include:",
@@ -67,56 +70,3 @@ var questions = [
         ]
     }
 ]
-
-function showQuestion(question) {
-    questionEl.innerText = question.question
-}
-
-//function that starts quiz
-function quizStart() {
-    introBtn.classList.add("hide");
-    intro.classList.add("hide");
-    currentQuestion = 0;
-    quizContent.classList.remove("hide");
-    nextQuestion();
-//function that starts the timer
-
-}
-
-//function for timer
-/*
-var quizTimer() {
-    let counter = 75
-    setInterval(() => {
-        counter--
-        timer.innerHTML(counter)
-    }, 1000);
-    nextQuestion();
-}
-*/
-//function that loads in next question and alerts if they picked the right or wrong answer.
-function nextQuestion () {
-    showQuestion(questionArray[currentQuestion]);
-}
-
-function showQuestion(question) {
-    questionEl.innerText = question.question
-    question.answers.array.forEach(answer => {
-        var button = document.createElement("button")
-        button.innerText = answer.text
-    });
-}
-
-//function that will end the quiz if the timer reaches 0/ alert("You've reached the time limit")
-
-//function that tallies score based on correct answers
-function choiceAnswer () {
-
-}
-
-//function: "your score. Return to beginning + see high scores"
-
-
-
-//clears quiz content, loads in first question
-introBtn.addEventListener("click", quizStart);

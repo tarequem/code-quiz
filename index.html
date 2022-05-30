@@ -5,34 +5,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <script src="./assets/js/script.js"></script>
+
     <title>Code Quiz</title>
 </head>
 <body>
     <!--header -->
     <header>
         <h4 class="high-scores" id="high-scores"><a href="./index.html">View high scores</a></h4>
-        <h4 class="time" id="time">Time: </h4>
+        <h4 class="time" id="time"></h4>
     </header>
 
     <!--intro to quiz-->
-    <section>
-        <main class="quiz-intro" id="quiz-intro">
-            <h1>Coding Quiz Challenge</h1>
-            <p>Try to answer the following code-related questions within the time limit. keep in mind that incorrect answers will penalize your score/time by 10 seconds!
-            </p>
-            <!--object that will be tarted by appendChild for list of button choices in JS-->
-            <button class="btn" id="btn">Start Quiz</button>
-        </main>
-        <div class="hide" id="quiz-content">
-            <h1 class="question" id="question">test </h1>
-            <button class="choice-btn" id="choice-btn">test </button>
-            <button class="choice-btn" id="choice-btn">test </button>
-            <button class="choice-btn" id="choice-btn">test </button>
-            <button class="choice-btn" id="choice-btn">test </button>
-            <h4 class="hide-right" id="right">Correct!</h4>
-            <h4 class="hide-wrong" id="wrong">Wrong!</h4>
-        </main>
+    <div class="quiz-intro" id="quiz-intro">
+        <h1>Coding Quiz Challenge</h1>
+        <p>Try to answer the following code-related questions within the time limit. keep in mind that incorrect answers will penalize your score/time by 10 seconds!
+        </p>
+         <!--object that will be tarted by appendChild for list of button choices in JS-->
+        <button class="btn" id="btn">Start Quiz</button>
     </div>
+    <div class="hide" id="quiz-content">
+        <h1 class="question" id="question"></h1>
+        <div class="buttons">
+            <button class="choice-btn" id="btn0">1. <span id="choice0"></span></button>
+            <button class="choice-btn" id="btn1">2. <span id="choice1"></span></button>
+            <button class="choice-btn" id="btn2">3. <span id="choice2"></span></button>
+            <button class="choice-btn" id="btn3">4. <span id="choice3"></span></button>
+        </div>
+
+        <h4 class="hide-right" id="right">Correct!</h4>
+        <h4 class="hide-wrong" id="wrong">Wrong!</h4>
+    </div>
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>
+
+<!--
+
+
+
+
+                <button class="choice-btn" id="choice-btn">test </button>
+            <button class="choice-btn" id="choice-btn">test </button>
+            <button class="choice-btn" id="choice-btn">test </button>
+            <button class="choice-btn" id="choice-btn">test </button>
+-->
