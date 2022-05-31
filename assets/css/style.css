@@ -27,21 +27,23 @@ header {
     width: 50%;
 }
 
-.quiz-intro h1 {
+.quiz-intro {
+    padding: 30px;
     text-align: center;
-    font-size: 32px;
+
+}
+
+.quiz-intro h1 {
+    font-size: 48px;
 }
 
 .quiz-intro p {
-    text-align: center;
-    font-size: 20px;
+    font-size: 22px;
 }
 
-.btn {
-    text-align: center;
+.start-btn {
     color: black;
     background-color: purple;
-    border: none;
     padding: 10px 20px;
     font-size: 16px;
     border-radius: 10px;
@@ -51,22 +53,35 @@ header {
 
 /* styling for elements added by js */
 
+.hide {
+    display: none;
+}
+
+.quiz {
+    margin: 30px;
+    text-align: left;
+    padding: 0 200px;
+}
+
 .question {
     font-size: 32px;
+
+}
+
+.choice-btns {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
 }
 
 .choice-btn {
     color: black;
     background-color: purple;
-    border: none;
     padding: 10px 20px;
     font-size: 16px;
     border-radius: 10px;
     font-weight: bold;
-}
-
-.hide {
-    display: none;
+    width: 200px;
 }
 
 .hide-right {
@@ -77,18 +92,78 @@ header {
     display: none;
 }
 
-/* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
-@media screen and (max-width: 980px){
+.complete {
+    margin: auto;
+}
+
+.score {
+    margin: auto;
+}
+
+.quiz-repeat {
+    margin: auto;
+}
+
+.form-input {
+    border: 1px solid black;
+    display: block;
+    padding: 7px 15px;
+    font-size: 16px;
+    color: black;
+    margin-bottom: 15px; 
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.75);
+}
+
+.label {
+    font-size: 22px;
+    margin: auto;
+}
+
+.scores {
+    
+}
+
+.scores h1 {
 
 }
+
+/* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
+@media screen and (max-width: 980px){
+    /*add after push*/
+
+
+    .choice-btn {
+        width: 100%;
+        margin: auto;
+    }
+
+    .complete {
+        margin: auto;
+    }
+    
+    .score {
+        margin: auto;
+    }
+    
+    .quiz-repeat {
+        margin: auto;
+    }
+
+    .form-input {
+        margin: 0;
+    }
+    
+    .label {
+        margin: auto;
+    }
+    
+}
+
 
 /* MEDIA QUERY FOR TABLETS AND SMALLER */
 @media screen and (max-width: 768px) {
     .btn {
-        width: 100%;
-    }
-
-    .choice {
         width: 100%;
     }
 

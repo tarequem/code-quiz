@@ -12,30 +12,32 @@
     <!--header -->
     <header>
         <h4 class="high-scores" id="high-scores"><a href="./index.html">View high scores</a></h4>
-        <h4 class="time" id="time"></h4>
+        <h4 class="time" id="quiz-timer"></h4>
     </header>
 
     <!--intro to quiz-->
-    <div class="quiz-intro" id="quiz-intro">
-        <h1>Coding Quiz Challenge</h1>
-        <p>Try to answer the following code-related questions within the time limit. keep in mind that incorrect answers will penalize your score/time by 10 seconds!
-        </p>
-         <!--object that will be tarted by appendChild for list of button choices in JS-->
-        <button class="btn" id="btn">Start Quiz</button>
-    </div>
-    <div class="hide" id="quiz-content">
-        <h1 class="question" id="question"></h1>
-        <div>
-            <button class="choice-btn" id="btn0">1. <span id="choice0"></span></button>
-            <button class="choice-btn" id="btn1">2. <span id="choice1"></span></button>
-            <button class="choice-btn" id="btn2">3. <span id="choice2"></span></button>
-            <button class="choice-btn" id="btn3">4. <span id="choice3"></span></button>
+        <div class="quiz-intro" id="quiz-intro">
+            <h1>Coding Quiz Challenge</h1>
+            <p>Try to answer the following code-related questions within the time limit. keep in mind that incorrect answers will penalize your score/time by 10 seconds!
+            </p>
+            <button class="start-btn" id="btn">Start Quiz</button>
+        </div>
+    <div class="quiz">
+        <div class="hide" id="quiz-content">
+            <h1 class="question" id="question"></h1>
+            <div class="choice-btns">
+                <button class="choice-btn" id="btn0">1. <span id="choice0"></span></button>
+                <button class="choice-btn" id="btn1">2. <span id="choice1"></span></button>
+                <button class="choice-btn" id="btn2">3. <span id="choice2"></span></button>
+                <button class="choice-btn" id="btn3">4. <span id="choice3"></span></button>
+                <div class="choice-result">
+                    <h4 class="hide-right" id="right">Correct!</h4>
+                    <h4 class="hide-wrong" id="wrong">Wrong!</h4>
+                </div>
+            </div>
         </div>
     </div>
-    <footer>
-        <h4 class="hide-right" id="right">Correct!</h4>
-        <h4 class="hide-wrong" id="wrong">Wrong!</h4>
-    </footer>
+
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
