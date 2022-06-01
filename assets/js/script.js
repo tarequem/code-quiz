@@ -104,6 +104,7 @@ class Quiz {
         } else {
             wrong.classList.remove("hide-wrong");
             right.classList.add("hide-right");
+            timeLeft -- 10;
             //add this after pushing quiz feature
         }
     //move onto next question
