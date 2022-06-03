@@ -104,21 +104,26 @@ function saveScore() {
 
 //function that turns initialsVal and scoreVal into li item, before ol around il becomes an object for storage. 
 viewScores.addEventListener("click", function() {
-    var ol = "<ol>"
+    var ol = "<ol class='score-list'>"
     scoreArray.forEach(function (scoreObj) {
         ol += "<li>" + JSON.stringify(scoreObj) + "</li>"
     });
     ol += "</ol>";
-    document.getElementById("score-list").innerHTML = ol + "<button onclick='closeScore()' class='hide-list' type='button' id='close-score'>Close Scores</button>";
+    document.getElementById("score-list").innerHTML = ol + "<button onclick='closeScore()' class='hide-list' type='button'>Close Scores</button>" + "<button onclick='clearScore()' class='hide-list' type='button'>Clear Scores</button>" ;
 
     scoreList.classList.remove("hide");
-
 });
 
 //hides the scorelist when button is clicked
 function closeScore() {
     scoreList.classList.add("hide");
 };
+
+//clears high scores
+function clearScore() {
+    window.localStorage.clear();
+    window.location.reload();
+}
 
 
 //logic for questions and scoring

@@ -25,12 +25,14 @@ header {
     font-weight: bold;
 }
 
+/*style for timer*/
 .time {
     color: black;
     font-weight: bold;
     font-size: 16px;
 }
 
+/*style for quiz*/
 .quiz-content {
     margin: auto;
     display: flex;
@@ -63,11 +65,6 @@ header {
     margin: auto;
 }
 
-/* will be added by JS to elements that need to remain hidden */
-.hide {
-    display: none;
-}
-
 .quiz {
     margin: 30px;
     text-align: left;
@@ -95,6 +92,11 @@ header {
     width: 200px;
 }
 
+/* will be added by JS to elements that need to remain hidden */
+.hide {
+    display: none;
+}
+
 .hide-right {
     display: none;
 }
@@ -103,6 +105,7 @@ header {
     display: none;
 }
 
+/*style for score page after quiz is done*/
 .complete {
     margin: auto;
 }
@@ -157,43 +160,48 @@ header {
     color: black;
 }    
 
-.stored-score {
+.score-list {
     font-size: 28px;
     margin-bottom: 5px;
 }
 
 /* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
 @media screen and (max-width: 980px){
-    /*add after push*/
+    .quiz-repeat {
+        text-align: center;
+    }    
+    .quiz {
+        padding: 0;
+    }
 
     .score-btn {
         width: 100%;
-        margin: auto;
+
     }
 
     .choice-btn {
         width: 100%;
-        margin: auto;
+
     }
 
     .complete {
-        margin: auto;
+        width: 100%;
     }
     
     .score {
-        margin: auto;
+        width: 100%;
     }
     
     .quiz-repeat {
-        margin: auto;
+        width: 100%;
     }
 
     .form-input {
-        margin: 0;
+        width: 100%;
     }
     
     .label {
-        margin: auto;
+        width: 100%;
     }
     
 }
