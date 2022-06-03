@@ -6,14 +6,13 @@ var questionEl = document.getElementById("question");
 var choiceBtnEl = document.getElementById("choice-btn");
 var right = document.getElementById("right");
 var wrong = document.getElementById("wrong");
-var initialsInput = document.querySelector("#name");
 var timerEl = document.getElementById("quiz-timer");
-var questions = questions;
-var questionIndex = 0;
 var scoreBtn = document.getElementById("high-scores");
 var submitScore = document.getElementById("submit");
 var scoreList = document.getElementById("score-list");
+var questions = questions;
 var timeLeft = 60;
+var questionIndex = 0;
 
 //function that hides hero at the start to make room for quiz & starts timer
 function quizStart() {
@@ -75,18 +74,14 @@ function showScores() {
     `<h1 class="complete">Quiz Completed</h1>
     <h2 class="score"> You scored: <scan id="score">${timeLeft}</scan></h2>
     <label for="initials" class="label">Enter your initials to save your score:</label>
-    <input type="text" placeholder="Your Initials" name="initials" id="initials" class="form-input" maxLength="2"/>
-    <button onclick="saveScore()" type="button" class="score-btn" id="submit-btn" value="Submit Initials"><a href="index.html">Submit Score</a></button>
+    <input type="text" placeholder="Your Initials" name="initials" id="initials" class="form-input" maxLength="2" />
+    <button onclick="saveScore()" type="button" class="score-btn" id="submit-btn" value="Submit Initials">Submit Score</button>
     <div class="quiz-repeat">
         <a href="index.html">Take Quiz Again</a>
     </div>`;
     let quizElement = document.getElementById("quiz-content");
     quizElement.innerHTML = quizEndHTML;
 };
-
-//array for scores, loads from array
-var scoreArray = JSON.parse(localStorage.getItem("scoreArray")) || [];
-
 
 //function for storing high scores
 function saveScore() {
@@ -100,7 +95,14 @@ function saveScore() {
     
     //stores array into local storage
     localStorage.setItem("scoreArray", JSON.stringify(scoreArray));
+
+    //prevents saving score multiple times
+    window.location.reload();
 };
+
+
+//array for scores, loads from array
+var scoreArray = JSON.parse(localStorage.getItem("scoreArray")) || [];
 
 //function that turns initialsVal and scoreVal into li item, before ol around il becomes an object for storage. 
 viewScores.addEventListener("click", function() {
