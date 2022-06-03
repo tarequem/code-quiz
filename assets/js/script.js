@@ -11,9 +11,7 @@ var timerEl = document.getElementById("quiz-timer");
 var questions = questions;
 var questionIndex = 0;
 
-//KEY, VALUE. MAKE A VAR OBJECT FOR THE SCORE AND INTIALS, THEN I CAN STORE IT. 
-
-//variables for saving high score
+//variables for score buttons
 var scoreBtn = document.getElementById("high-scores");
 var submitScore = document.getElementById("submit");
 var scoreList = document.getElementById("score-list");
@@ -112,14 +110,20 @@ function saveScore() {
 
 //function that turns initialsVal and scoreVal into li item, before ol around il becomes an object for storage. 
 viewScores.addEventListener("click", function() {
-    JSON.parse(localStorage.getItem("scoreArray"));
-    var ul = "<ul>"
+    var ol = "<ol>"
     scoreArray.forEach(function (scoreObj) {
-        ul += "<li>" + JSON.stringify(scoreObj) + "</li>"
+        ol += "<li>" + JSON.stringify(scoreObj) + "</li>"
     });
-    ul += "</ul>";
-    document.getElementById("score-list").innerHTML = ul;
+    ol += "</ol>";
+    document.getElementById("score-list").innerHTML = ol + "<button onclick='closeScore()' type='button' id='close-score'>Close Scores</button>";
+
+    scoreList.classList.remove("hide");
+
 });
+
+function closeScore() {
+    scoreList.classList.add("hide");
+};
 
 console.log(scoreArray);
 
