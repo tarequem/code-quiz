@@ -128,10 +128,54 @@ header {
 
 }
 
+.score-btn {
+
+    background-color: purple;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 10px;
+    font-weight: bold;
+    margin: auto;
+}
+
+.score-btn a {
+    text-decoration: none;
+    color: black;
+}
+
+.quiz-repeat {
+    cursor: pointer;
+    background-color: purple;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 10px;
+    font-weight: bold;
+    width: 200px;
+}
+
+.quiz-repeat a {
+    text-decoration: none;
+    color: black;
+}    
+
+.stored-score {
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
 /* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
 @media screen and (max-width: 980px){
     /*add after push*/
 
+    .quiz-repeat {
+        width: 100%;
+        margin: auto;
+    }
+
+    .score-btn {
+        width: 100%;
+        margin: auto;
+    }
 
     .choice-btn {
         width: 100%;

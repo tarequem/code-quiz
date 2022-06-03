@@ -1,18 +1,27 @@
-var savedScoreArray = [];
 var introBtn = document.getElementById("btn");
+var viewScores = document.getElementById("high-scores");
 var intro = document.getElementById("quiz-intro");
 var quizContent = document.getElementById("quiz-content");
 var questionEl = document.getElementById("question");
 var choiceBtnEl = document.getElementById("choice-btn");
 var right = document.getElementById("right");
 var wrong = document.getElementById("wrong");
-var submitScore = document.getElementById("submit");
-var scoreList = document.getElementById("score-list");
 var initialsInput = document.querySelector("#name");
 var timerEl = document.getElementById("quiz-timer");
 var questions = questions;
 var questionIndex = 0;
 
+//KEY, VALUE. MAKE A VAR OBJECT FOR THE SCORE AND INTIALS, THEN I CAN STORE IT. 
+
+//variables for saving high score
+var scoreBtn = document.getElementById("high-scores");
+var submitScore = document.getElementById("submit");
+var scoreList = document.getElementById("score-list");
+
+//grabbing from showscores function
+var initials = document.querySelector("#initials");
+
+//function that hides hero at the start to make room for quiz & starts timer
 function quizStart() {
     introBtn.classList.add("hide");
     intro.classList.add("hide");
@@ -20,6 +29,7 @@ function quizStart() {
     quizTimer();
 };
 
+//function for loading next question and choices
 function nextQuestion() {
     if (quiz.isEnded()) {
         showScores();
@@ -60,7 +70,7 @@ function quizTimer() {
         } else {
             timerEl.textContent = "";
             clearInterval(timeInterval);
-            alert("You've ran out of time");
+            //alert("You've ran out of time"); timer continues in background, adds confusion if alert stays on. need to terminate timer on condition.
             return showScores();
         } 
     }, 1000);
@@ -71,10 +81,10 @@ function showScores() {
     timerEl.classList.add("hide");
     let quizEndHTML = 
     `<h1 class="complete">Quiz Completed</h1>
-    <h2 class="score" id='score'> You scored: ${quiz.score} of ${quiz.questions.length}</h2>
-    <label for="name" class="label">Enter your initials to save your score:</label>
-    <input type="text" placeholder="Your Initials" name="name" id="name" class="form-input" />
-    <a href="index.html"><button type="submit" id="submit">Submit Score</button></a>
+    <h2 class="score"> You scored: <scan id="score">${quiz.score}</scan> of ${quiz.questions.length}</h2>
+    <label for="initials" class="label">Enter your initials to save your score:</label>
+    <input type="text" placeholder="Your Initials" name="initials" id="initials" class="form-input" maxLength="2"/>
+    <button onclick="saveScore()" type="button" class="score-btn" id="submit-btn" value="Submit Initials"><a href="index.html">Submit Score</a></button>
     <div class="quiz-repeat">
         <a href="index.html">Take Quiz Again</a>
     </div>`;
@@ -82,6 +92,36 @@ function showScores() {
     quizElement.innerHTML = quizEndHTML;
 };
 
+//array for scores, loads from array
+var scoreArray = JSON.parse(localStorage.getItem("scoreArray")) || [];
+
+
+//function for storing high scores
+function saveScore() {
+    //turns initials input and score into values for object
+    var initialsVal = document.getElementById("initials").value;
+    var scoreVal = document.getElementById("score").textContent;
+
+    //storing initials and score into an object, then pushes into array
+    var scoreObj = {initials: initialsVal, score: scoreVal};
+    scoreArray.push(scoreObj);
+    
+    //stores array into local storage
+    localStorage.setItem("scoreArray", JSON.stringify(scoreArray));
+};
+
+//function that turns initialsVal and scoreVal into li item, before ol around il becomes an object for storage. 
+viewScores.addEventListener("click", function() {
+    JSON.parse(localStorage.getItem("scoreArray"));
+    var ul = "<ul>"
+    scoreArray.forEach(function (scoreObj) {
+        ul += "<li>" + JSON.stringify(scoreObj) + "</li>"
+    });
+    ul += "</ul>";
+    document.getElementById("score-list").innerHTML = ul;
+});
+
+console.log(scoreArray);
 
 //logic for questions and scoring
 class Quiz {
@@ -98,16 +138,13 @@ class Quiz {
     response(correct) {
         if (this.getQuestionIndex().answerCheck(correct)) {
             this.score++;
-            //add this after pushing quiz feature
             right.classList.remove("hide-right");
             wrong.classList.add("hide-wrong");
         } else {
             wrong.classList.remove("hide-wrong");
             right.classList.add("hide-right");
-            timeLeft -- 10;
-            //add this after pushing quiz feature
         }
-    //move onto next question
+    //adds to question index
         this.questionIndex++;
     };
 
@@ -150,7 +187,7 @@ var questions = [
 
 let quiz = new Quiz(questions);
 
-//display the questions
+
 nextQuestion();
 
 //hides intro page, loads nextQuestion
