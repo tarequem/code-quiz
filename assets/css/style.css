@@ -8,9 +8,21 @@ header {
     justify-content: space-between;
 }
 
-.high-scores a {
+/* style for high score button */
+.high-scores {
     color: violet;
     text-decoration: none;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.hide-list {
+    color: black;
+    background-color: purple;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 10px;
+    font-weight: bold;
 }
 
 .time {
@@ -51,8 +63,7 @@ header {
     margin: auto;
 }
 
-/* styling for elements added by js */
-
+/* will be added by JS to elements that need to remain hidden */
 .hide {
     display: none;
 }
@@ -100,10 +111,6 @@ header {
     margin: auto;
 }
 
-.quiz-repeat {
-    margin: auto;
-}
-
 .form-input {
     border: 1px solid black;
     display: block;
@@ -138,11 +145,11 @@ header {
 .quiz-repeat {
     cursor: pointer;
     background-color: purple;
-    padding: 10px 20px;
+    padding: 5px 5px;
     font-size: 16px;
     border-radius: 10px;
     font-weight: bold;
-    width: 200px;
+    width: 130px;
 }
 
 .quiz-repeat a {
@@ -158,11 +165,6 @@ header {
 /* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
 @media screen and (max-width: 980px){
     /*add after push*/
-
-    .quiz-repeat {
-        width: 100%;
-        margin: auto;
-    }
 
     .score-btn {
         width: 100%;

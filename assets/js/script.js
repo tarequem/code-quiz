@@ -10,14 +10,10 @@ var initialsInput = document.querySelector("#name");
 var timerEl = document.getElementById("quiz-timer");
 var questions = questions;
 var questionIndex = 0;
-
-//variables for score buttons
 var scoreBtn = document.getElementById("high-scores");
 var submitScore = document.getElementById("submit");
 var scoreList = document.getElementById("score-list");
-
-//grabbing from showscores function
-var initials = document.querySelector("#initials");
+var timeLeft = 60;
 
 //function that hides hero at the start to make room for quiz & starts timer
 function quizStart() {
@@ -57,7 +53,6 @@ function response (id, response) {
 
 //function for timer
 function quizTimer() {
-    var timeLeft = 60;
     var timeInterval = setInterval(function() {
         if (timeLeft > 1) {
             timerEl.textContent = ' Timer: ' + timeLeft;
@@ -68,7 +63,6 @@ function quizTimer() {
         } else {
             timerEl.textContent = "";
             clearInterval(timeInterval);
-            //alert("You've ran out of time"); timer continues in background, adds confusion if alert stays on. need to terminate timer on condition.
             return showScores();
         } 
     }, 1000);
@@ -79,7 +73,7 @@ function showScores() {
     timerEl.classList.add("hide");
     let quizEndHTML = 
     `<h1 class="complete">Quiz Completed</h1>
-    <h2 class="score"> You scored: <scan id="score">${quiz.score}</scan> of ${quiz.questions.length}</h2>
+    <h2 class="score"> You scored: <scan id="score">${timeLeft}</scan></h2>
     <label for="initials" class="label">Enter your initials to save your score:</label>
     <input type="text" placeholder="Your Initials" name="initials" id="initials" class="form-input" maxLength="2"/>
     <button onclick="saveScore()" type="button" class="score-btn" id="submit-btn" value="Submit Initials"><a href="index.html">Submit Score</a></button>
@@ -115,17 +109,17 @@ viewScores.addEventListener("click", function() {
         ol += "<li>" + JSON.stringify(scoreObj) + "</li>"
     });
     ol += "</ol>";
-    document.getElementById("score-list").innerHTML = ol + "<button onclick='closeScore()' type='button' id='close-score'>Close Scores</button>";
+    document.getElementById("score-list").innerHTML = ol + "<button onclick='closeScore()' class='hide-list' type='button' id='close-score'>Close Scores</button>";
 
     scoreList.classList.remove("hide");
 
 });
 
+//hides the scorelist when button is clicked
 function closeScore() {
     scoreList.classList.add("hide");
 };
 
-console.log(scoreArray);
 
 //logic for questions and scoring
 class Quiz {
@@ -142,11 +136,14 @@ class Quiz {
     response(correct) {
         if (this.getQuestionIndex().answerCheck(correct)) {
             this.score++;
+            //tells user answer was right
             right.classList.remove("hide-right");
             wrong.classList.add("hide-wrong");
         } else {
+            //tells user answer was wrong, takes away 10 seconds
             wrong.classList.remove("hide-wrong");
             right.classList.add("hide-right");
+            timeLeft -= 10;
         }
     //adds to question index
         this.questionIndex++;
@@ -167,7 +164,7 @@ class Question {
     //checks if correct
     answerCheck(choice) {
         return this.correct === choice;
-    }
+    } 
 };
 
 //array of questions and answers
@@ -176,13 +173,13 @@ var questions = [
         "Commonly used data types DO not include:", ["strings", "booleans", "alerts", "numbers"], "alerts"
     ),
     new Question (
-        "The condition in an if/else statement is enclosed with _______ :", ["quotes", "curly brackets", "parenthesis", "square brackets"], "paranthesis"
+        "The condition in an if/else statement is enclosed with _______ :", ["quotes", "curly brackets", "parenthesis", "square brackets"], "parenthesis"
     ),
     new Question (
         "Arrays in JavaScript can be used to store______.:", ["numbers and strings", "other arrays", "booleans", "all of the above"], "numbers and strings"
     ),
     new Question (
-        "String values must be enclosed within _____ when being assigned to variables:", ["commas", "curly brackets", "quotes", "parenthesis"], "paranthesis"
+        "String values must be enclosed within _____ when being assigned to variables:", ["commas", "curly brackets", "quotes", "parenthesis"], "quotes"
     ),
     new Question (
         "A very useful tool used during development and debugging for printing content to the debugger is:", ["Javascript", "terminal/bash", "for loops", "console.log"], "console.log"
